@@ -136,47 +136,45 @@
 \RequirePackage{environ}
 
 \newcounter{numcols}
-\NewEnviron{postercolumn}
-  {
-    \ifnum\value{numcols}=0
-      \node[text width=\colwidth, 
-            xshift=4em, 
-            below=3em of sep.west, 
-            anchor=north west] (col1) 
-        {~\\[\colsep]\BODY};
-    \else
-      \node[text width=\colwidth, 
-            xshift=\colsep, 
-            anchor=north west] at (col1.north east) 
-        {~\\[\colsep]\BODY};
-    \fi
-    \stepcounter{numcols}
-  }
+\NewEnviron{postercolumn}{
+  \ifnum\value{numcols}=0
+    \node[text width=\colwidth, 
+          xshift=4em, 
+          below=3em of sep.west, 
+          anchor=north west] (col1) 
+      {~\\[\colsep]\BODY};
+  \else
+    \node[text width=\colwidth, 
+          xshift=\colsep, 
+          anchor=north west] at (col1.north east) 
+      {~\\[\colsep]\BODY};
+  \fi
+  \stepcounter{numcols}
+}
 
-\newcommand{\posterbox}[3][\boxheight]
-  {
-    \begin{tikzpicture}
-      \node[text width=\colwidth, 
-            minimum height=#1, 
-            rounded corners, 
-            line width=\boxlinewidth, 
-            draw=mDarkTeal, 
-            fill=black!2] (content) 
-        {};
-      \node[anchor=north west, 
-            yshift=-6.2em, 
-            xshift=1em] at (content.north west) 
-        {\Large\parbox{\colwidth-2em}{#3}};
-      \node[text width=\colwidth, 
-            fill=mDarkTeal, 
-            text depth=1.4em, 
-            text height=4em, 
-            rounded corners, 
-            align=center, 
-            anchor=north west] (heading) at (content.north west) 
-        {\Huge{\color{white} ~~\bf #2}};
-    \end{tikzpicture}\\[\colsep]
-  }
+\newcommand{\posterbox}[3][\boxheight]{
+  \begin{tikzpicture}
+    \node[text width=\colwidth, 
+          minimum height=#1, 
+          rounded corners, 
+          line width=\boxlinewidth, 
+          draw=mDarkTeal, 
+          fill=black!2] (content) 
+      {};
+    \node[anchor=north west, 
+          yshift=-6.2em, 
+          xshift=1em] at (content.north west) 
+      {\Large\parbox{\colwidth-2em}{#3}};
+    \node[text width=\colwidth, 
+          fill=mDarkTeal, 
+          text depth=1.4em, 
+          text height=4em, 
+          rounded corners, 
+          align=center, 
+          anchor=north west] (heading) at (content.north west) 
+      {\Huge{\color{white} ~~\bf #2}};
+  \end{tikzpicture}\\[\colsep]
+}
 
 \newcommand{\doubleposterbox}[5][0.6]{
   \myColorbox[#1\boxheight]{#2}{#3}
