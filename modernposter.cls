@@ -59,10 +59,21 @@
 \renewcommand{\labelitemi}{$\bullet$~~}
 \renewcommand{\labelitemii}{\faicon{angle-right}~~}
 
+\RequirePackage[light,sfdefault]{FiraSans}
+
 %------------------------------------------------------------------------------
 % Begin/End Document commands
 %------------------------------------------------------------------------------
 \AtBeginDocument{
+  \makeatletter
+    \def\bfseries@sf{m}
+    \SetSymbolFont{operators}{normal}{\math@encoding}{\math@sfdefault}{l}{n}
+    \SetSymbolFont{operators}{bold}{\math@encoding}{\math@sfdefault}{m}{n}
+    \DeclareSymbolFont{SFMath}{\math@encoding}{\math@sfdefault}{l}{sl}
+    \SetSymbolFont{SFMath}{normal}{\math@encoding}{\math@sfdefault}{l}{sl}
+    \SetSymbolFont{SFMath}{bold}{\math@encoding}{\math@sfdefault}{m}{\mathnormal@bold@shape}
+  \makeatother  
+
   \setlength{\colheight}{\paperheight - 26em}
   \setlength{\colwidth}{0.45\linewidth}
   \setlength{\colsep}{0.01\linewidth}
