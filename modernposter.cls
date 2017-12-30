@@ -59,6 +59,9 @@
 \renewcommand{\labelitemi}{$\bullet$~~}
 \renewcommand{\labelitemii}{\faicon{angle-right}~~}
 
+%------------------------------------------------------------------------------
+% Begin/End Document commands
+%------------------------------------------------------------------------------
 \AtBeginDocument{
   \setlength{\colheight}{\paperheight - 26em}
   \setlength{\colwidth}{0.45\linewidth}
@@ -88,32 +91,32 @@
           text width=\paperwidth, 
           fill=black!10, 
           anchor=north west] at (current page.north west) 
-          {};
+      {};
     \node[text height=15em, 
           text width=\paperwidth-15em, 
           fill=mDarkTeal, 
           anchor=north west] (header) at (current page.north west) 
-          {};
+      {};
     \node[text width=\paperwidth, 
           text height=0.15em, 
           fill=orange, 
           yshift=-15em] (sep) at (current page.north) 
-          {};
+      {};
     \node[anchor=west, 
           xshift=1em] (logo) at (header.east) 
-          {\includegraphics[width=13em]{\@logo}};
+      {\includegraphics[width=13em]{\@logo}};
     \node[anchor=east, 
           yshift=3.4em, 
           xshift=-2.5em] (title) at (header.east) 
-          {\veryHuge \color{white} \bf \@title};
+      {\veryHuge \color{white} \bf \@title};
     \node[anchor=east, 
           yshift=-0.8em, 
           xshift=-2.5em] (authors) at (header.east) 
-          {\veryHuge\smaller\smaller \color{white} \bf \@author};
+      {\veryHuge\smaller\smaller \color{white} \bf \@author};
     \node[anchor=east, 
           yshift=-4.3em, 
           xshift=-2.5em] (email) at (header.east) 
-          {\veryHuge\smaller\smaller \color{white} \bf\tt \@email};
+      {\veryHuge\smaller\smaller \color{white} \bf\tt \@email};
 }
 
 %------------------------------------------------------------------------------
@@ -125,9 +128,16 @@
 \NewEnviron{postercolumn}
   {
     \ifnum\value{numcols}=0
-      \node[text width=\colwidth, xshift=4em, below=3em of sep.west, anchor=north west] (col1) {~\\[\colsep]\BODY};
+      \node[text width=\colwidth, 
+            xshift=4em, 
+            below=3em of sep.west, 
+            anchor=north west] (col1) 
+        {~\\[\colsep]\BODY};
     \else
-      \node[text width=\colwidth, xshift=\colsep, anchor=north west] at (col1.north east) {~\\[\colsep]\BODY};
+      \node[text width=\colwidth, 
+            xshift=\colsep, 
+            anchor=north west] at (col1.north east) 
+        {~\\[\colsep]\BODY};
     \fi
     \stepcounter{numcols}
   }
@@ -141,11 +151,11 @@
             line width=\boxlinewidth, 
             draw=mDarkTeal, 
             fill=black!2] (content) 
-            {};
+        {};
       \node[anchor=north west, 
             yshift=-6.2em, 
             xshift=1em] at (content.north west) 
-            {\Large\parbox{\colwidth-2em}{#3}};
+        {\Large\parbox{\colwidth-2em}{#3}};
       \node[text width=\colwidth, 
             fill=mDarkTeal, 
             text depth=1.4em, 
@@ -153,7 +163,7 @@
             rounded corners, 
             align=center, 
             anchor=north west] (heading) at (content.north west) 
-            {\Huge{\color{white} ~~\bf #2}};
+        {\Huge{\color{white} ~~\bf #2}};
     \end{tikzpicture}\\[\colsep]
   }
 
