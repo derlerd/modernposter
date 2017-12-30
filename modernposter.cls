@@ -40,6 +40,7 @@
 
 \newlength{\colheight}
 \newlength{\colwidth}
+\newlength{\coltextwidth}
 \newlength{\colsep}
 \newlength{\boxheight}
 \newlength{\boxlinewidth}
@@ -77,8 +78,9 @@
     \SetSymbolFont{SFMath}{bold}{\math@encoding}{\math@sfdefault}{m}{\mathnormal@bold@shape}
   \makeatother  
 
-  \setlength{\colheight}{\paperheight - 26em}
+  \setlength{\colheight}{\paperheight-26em}
   \setlength{\colwidth}{0.45\linewidth}
+  \setlength{\coltextwidth}{\colwidth-2em}
   \setlength{\colsep}{0.01\linewidth}
   \setlength{\boxheight}{0.33\colheight}
   \setlength{\boxlinewidth}{1mm}
@@ -167,7 +169,7 @@
     \node[anchor=north west, 
           yshift=-6.2em, 
           xshift=1em] at (content.north west) 
-      {\Large\parbox{\colwidth-2em}{#3~}};
+      {\Large\parbox{\coltextwidth}{#3~}};
     \node[text width=\colwidth, 
           fill=mDarkTeal, 
           text depth=1.4em, 
