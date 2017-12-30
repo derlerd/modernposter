@@ -1,0 +1,45 @@
+\documentclass{modernposter}
+
+\title{This is a Modernposter Demo}
+\author{David Derler}
+\email{david@derler.info} 
+\logo{logo.png}
+
+\begin{document}
+
+\maketitle
+
+\begin{postercolumn}
+  \posterbox{Motivation}{
+    {\bf The {\tt modernposter} class file}
+    \begin{itemize}
+      \item Easy \& fast typesetting of posters
+      \item Theme is inspired by the {\tt metropolis} beamer template
+    \end{itemize}
+  }
+  \posterbox{Demo}{
+    $\dots$
+  }
+  \posterbox{Demo II}{
+    $\dots$
+  }
+
+\end{postercolumn} 
+
+\begin{postercolumn}
+  \posterbox{Demo III}{
+    $\dots$
+  }
+  \doubleposterbox
+    {Double Demo I}
+    { $\dots$ }
+    {\orange{Double Demo II}}
+    { $\dots$ }
+  \doubleposterbox[0.4]
+    {Double Demo III}
+    { $\dots$ }
+    {\orange{Double Demo IV}}
+    { $\dots$ }
+\end{postercolumn}
+
+\end{document}

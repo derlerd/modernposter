@@ -34,8 +34,10 @@
 \newcommand\orangeuline[1]{\colorlet{temp}{.}\color{orange}\underline{\color{temp}#1}\color{temp}}
 
 %------------------------------------------------------------------------------
-% Lengths
+% Lengths and sizes
 %------------------------------------------------------------------------------
+\RequirePackage{relsize}
+
 \newlength{\colheight}
 \newlength{\colwidth}
 \newlength{\colsep}
@@ -53,6 +55,7 @@
 %------------------------------------------------------------------------------
 \RequirePackage{enumitem}
 \RequirePackage{fontawesome}
+\RequirePackage{sfmath}
 \setlength{\itemindent}{10in}
 \setlist[itemize]{leftmargin=1in}
 \setlist[enumerate]{leftmargin=1in}
@@ -164,7 +167,7 @@
     \node[anchor=north west, 
           yshift=-6.2em, 
           xshift=1em] at (content.north west) 
-      {\Large\parbox{\colwidth-2em}{#3}};
+      {\Large\parbox{\colwidth-2em}{#3~}};
     \node[text width=\colwidth, 
           fill=mDarkTeal, 
           text depth=1.4em, 
@@ -177,7 +180,7 @@
 }
 
 \newcommand{\doubleposterbox}[5][0.6]{
-  \myColorbox[#1\boxheight]{#2}{#3}
-  \myColorbox[\boxheight-#1\boxheight-\colsep-\boxlinewidth]{#4}{#5}
+  \posterbox[#1\boxheight]{#2}{#3}
+  \posterbox[\boxheight-#1\boxheight-\colsep-\boxlinewidth]{#4}{#5}
 }
 
