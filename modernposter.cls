@@ -68,6 +68,19 @@
 %------------------------------------------------------------------------------
 % Begin/End Document commands
 %------------------------------------------------------------------------------
+\RequirePackage{etoolbox}
+\AfterEndPreamble{
+  \setlength{\colheight}{111.6em}
+  \setlength{\colwidth}{0.4525\linewidth}
+  \setlength{\coltextwidth}{\colwidth-2em}
+  \setlength{\colsep}{0.01\linewidth}
+  \setlength{\boxheight}{0.33\colheight}
+  \setlength{\boxlinewidth}{1mm}
+  \begin{tikzpicture}[remember picture, 
+                      overlay, 
+                      every node/.style={inner sep=0,outer sep=0}]
+}
+
 \AtBeginDocument{
   \makeatletter
     \def\bfseries@sf{m}
@@ -76,18 +89,7 @@
     \DeclareSymbolFont{SFMath}{\math@encoding}{\math@sfdefault}{l}{sl}
     \SetSymbolFont{SFMath}{normal}{\math@encoding}{\math@sfdefault}{l}{sl}
     \SetSymbolFont{SFMath}{bold}{\math@encoding}{\math@sfdefault}{m}{\mathnormal@bold@shape}
-  \makeatother  
-
-  \setlength{\colheight}{\paperheight-26em}
-  \setlength{\colwidth}{0.45\linewidth}
-  \setlength{\coltextwidth}{\colwidth-2em}
-  \setlength{\colsep}{0.01\linewidth}
-  \setlength{\boxheight}{0.33\colheight}
-  \setlength{\boxlinewidth}{1mm}
-
-  \begin{tikzpicture}[remember picture, 
-                      overlay, 
-                      every node/.style={inner sep=0,outer sep=0}]
+  \makeatother   
 }
 
 \AtEndDocument{
@@ -183,6 +185,6 @@
 
 \newcommand{\doubleposterbox}[5][0.6]{
   \posterbox[#1\boxheight]{#2}{#3}
-  \posterbox[\boxheight-#1\boxheight-\colsep-\boxlinewidth]{#4}{#5}
+  \posterbox[\boxheight-#1\boxheight-\colsep-1.33\boxlinewidth]{#4}{#5}
 }
 
