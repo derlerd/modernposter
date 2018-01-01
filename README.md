@@ -2,7 +2,7 @@
 
 This class extends the a0poster class in that it adds support to position textboxes in a two-column layout. The color scheme is inspired by the [metropolis beamer theme](https://github.com/matze/mtheme). 
 
-Below you can find a preview of the demo 
+Below you can find a preview of the demo:
 
 ![Preview](https://i.imgur.com/XUr9a5U.jpg)
 
@@ -38,7 +38,7 @@ Below you can find a toy example, demonstrating how to use modernposter
 ```
 
 ## Authors
-The code was written by David Derler. He can be contacted via [modernposter@derler.info](mailto:modernposter@derler.info)
+The code was written by David Derler. He can be contacted via [modernposter@derler.info](mailto:modernposter@derler.info).
 
 ## License
-The code is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/)
+The code is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).
