@@ -43,7 +43,9 @@
 
 \pgfkeys{/modernposter/.cd,
   hlcolor/.store in=\modernposter@hlcolor,
-  hlcolor=FF8000}
+  logo/.store in=\modernposter@logo,
+  hlcolor=FF8000,
+  logo=logo.png}
 
 \ProcessPgfOptions{/modernposter}
 
@@ -129,10 +131,10 @@
 %------------------------------------------------------------------------------
 % Title commands
 %------------------------------------------------------------------------------
-\def\@logo{}
+\RequirePackage[hidelinks]{hyperref}
+
 \def\@email{}
 \newcommand{\email}[1]{\def\@email{#1}}
-\newcommand{\logo}[1]{\def\@logo{#1}}
 
 \renewcommand{\maketitle}{
     \node[text height=\paperheight, 
@@ -152,7 +154,7 @@
       {};
     \node[anchor=west, 
           xshift=1em] (logo) at (header.east) 
-      {\includegraphics[width=13em]{\@logo}};
+      {\includegraphics[width=13em]{\modernposter@logo}};
     \node[anchor=east, 
           yshift=3.4em, 
           xshift=-2.5em] (title) at (header.east) 
@@ -164,7 +166,7 @@
     \node[anchor=east, 
           yshift=-4.3em, 
           xshift=-2.5em] (email) at (header.east) 
-      {\veryHuge\smaller\smaller \color{white} \bf\tt \@email};
+      {\veryHuge\smaller\smaller \color{white} \bf\tt \href{mailto:\@email}{\@email}};
 }
 
 %------------------------------------------------------------------------------
