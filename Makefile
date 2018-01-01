@@ -19,7 +19,7 @@ TEXMF_DOC     = ~/texmf/doc/latex/modernposter/
 CTAN_CONTENT = README.md $(SRC) $(DOC_PDF) $(DEMO_SRC) $(DEMO_PDF)
 
 
-all: clean ctan
+all: ctan
 
 doc: $(DOC_PDF) $(DEMO_PDF)
 
@@ -32,7 +32,7 @@ install: $(DOC_PDF)
 clean:
 	rm -rf $(TEMP_DIR) $(DOC_PDF) $(DEMO_PDF) $(ARCHIVE) $(PROJECT)
 
-ctan: clean doc
+ctan: doc
 	mkdir $(PROJECT)
 	cp -t $(PROJECT) $(CTAN_CONTENT)
 	zip -r $(ARCHIVE) $(PROJECT)
