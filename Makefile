@@ -1,3 +1,5 @@
+PROJECT       = modernposter
+
 SRC           = modernposter.cls
 DOC_SRC       = doc/modernposter.tex
 DOC_PDF       = $(DOC_SRC:%.tex=%.pdf)
@@ -14,7 +16,10 @@ LATEXMK       = latexmk $(LATEXMK_FLAGS)
 TEXMF_SRC     = ~/texmf/tex/latex/modernposter/
 TEXMF_DOC     = ~/texmf/doc/latex/modernposter/
 
-all: ctan
+CTAN_CONTENT = README.md $(SRC) $(DOC_PDF) $(DEMO_SRC) $(DEMO_PDF)
+
+
+all: clean ctan
 
 doc: $(DOC_PDF) $(DEMO_PDF)
 
@@ -25,11 +30,13 @@ install: $(DOC_PDF)
 	cp $(DOC_PDF) $(TEXMF_DOC)
 
 clean:
-	rm -rf $(TEMP_DIR) $(DOC_PDF) $(DEMO_PDF) $(ARCHIVE)
+	rm -rf $(TEMP_DIR) $(DOC_PDF) $(DEMO_PDF) $(ARCHIVE) $(PROJECT)
 
-ctan: doc
-	zip -j $(ARCHIVE) $(SRC) $(DOC_PDF) $(DEMO_SRC) $(DEMO_PDF)
-
+ctan: clean doc
+	mkdir $(PROJECT)
+	cp -t $(PROJECT) $(CTAN_CONTENT)
+	zip -r $(ARCHIVE) $(PROJECT)
+	
 $(DOC_PDF): 
 	$(LATEXMK) $(DOC_SRC)
 	cp  $(TEMP_DIR)/$(notdir $(DOC_PDF)) $(dir $(DOC_PDF))
