@@ -51,7 +51,7 @@
   hlcolor/.store in=\modernposter@hlcolor,
   logo/.store in=\modernposter@logo,
   hlcolor=FF8000,
-  logo=logo.png}
+  logo=none}
 
 \ProcessPgfOptions{/modernposter}
 
@@ -138,6 +138,7 @@
 % Title commands
 %------------------------------------------------------------------------------
 \RequirePackage[hidelinks]{hyperref}
+\RequirePackage{xifthen,xstring}
 
 \def\@email{}
 \newcommand{\email}[1]{\def\@email{#1}}
@@ -158,9 +159,11 @@
           fill=hlcol, 
           yshift=-15em] (sep) at (current page.north) 
       {};
+    \expandafter\ifstrequal\expandafter{\modernposter@logo}{none}{}{
     \node[anchor=west, 
           xshift=1em] (logo) at (header.east) 
       {\includegraphics[width=13em]{\modernposter@logo}};
+    }
     \node[anchor=east, 
           yshift=3.4em, 
           xshift=-2.5em] (title) at (header.east) 
