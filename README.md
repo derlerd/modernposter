@@ -28,10 +28,10 @@ Below you can find a toy example, demonstrating how to use modernposter
   \begin{postercolumn}
     \doubleposterbox[0.6]
       {Problem Statement}{
-       
+        $\dots$
       }
       {\highlight{Results}}{ 
-      
+        $\dots$
       }
   \end{postercolumn}
 \end{document}
