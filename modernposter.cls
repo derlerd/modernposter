@@ -50,7 +50,6 @@
 \definecolor{hlcol}{HTML}{\modernposter@hlcolor}
 
 \newcommand{\highlight}[1]{\textcolor{hlcol}{#1}}
-\newcommand{\hluline}[1]{\colorlet{temp}{.}\color{hlcol}\underline{\color{temp}#1}\color{temp}}
 
 %------------------------------------------------------------------------------
 % Lengths and sizes
@@ -79,6 +78,18 @@
 \setlength{\itemindent}{10in}
 \setlist[itemize]{leftmargin=1in}
 \setlist[enumerate]{leftmargin=1in}
+
+\let\oldparboxrestore\@arrayparboxrestore
+\renewcommand{\@arrayparboxrestore}{
+  \oldparboxrestore
+  \makeatletter
+  \parskip0.4em
+  \makeatother
+  }
+
+\let\faiconold\faicon
+\renewcommand{\faicon}[1]{{\rmfamily \faiconold{#1}}}
+
 \renewcommand{\labelitemi}{$\bullet$~~}
 \renewcommand{\labelitemii}{\faicon{angle-right}~~}
 
@@ -90,10 +101,10 @@
 \RequirePackage{etoolbox}
 \AfterEndPreamble{
   \setlength{\colheight}{111.6em}
-  \setlength{\colwidth}{0.4525\linewidth}
-  \setlength{\coltextwidth}{\colwidth-2em}
-  \setlength{\colsep}{0.01\linewidth}
-  \setlength{\boxheight}{0.33\colheight}
+  \setlength{\colwidth}{\dimexpr0.4525\linewidth\relax}
+  \setlength{\coltextwidth}{\dimexpr\colwidth-2em\relax}
+  \setlength{\colsep}{\dimexpr0.01\linewidth\relax}
+  \setlength{\boxheight}{\dimexpr0.33\colheight\relax}
   \setlength{\boxlinewidth}{1mm}
   \begin{tikzpicture}[remember picture, 
                       overlay, 
