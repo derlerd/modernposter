@@ -17,11 +17,12 @@
 \definecolor{c7}{HTML}{859900}
 \definecolor{c8}{HTML}{DC322F}
 \definecolor{c9}{HTML}{002B36}
+\definecolor{c10}{HTML}{FF8000}
 
 \definecolor{mDarkTeal}{HTML}{23373b}
 \definecolor{mDarkBrown}{HTML}{604c38}
 
-\newcommand{\orange}[1]{\textcolor{orange}{#1}}
+\newcommand{\orange}[1]{\textcolor{c10}{#1}}
 \newcommand{\gray}[1]{\textcolor{c2}{#1}}
 \newcommand{\purple}[1]{\textcolor{c3}{#1}}
 \newcommand{\pink}[1]{\textcolor{c4}{#1}}
@@ -29,9 +30,27 @@
 \newcommand{\yellow}[1]{\textcolor{c6}{#1}}
 \newcommand{\green}[1]{\textcolor{c7}{#1}}
 \newcommand{\red}[1]{\textcolor{c8}{#1}}
-\newcommand{\black}[1]{\textcolor{c9}{#1}}
+\newcommand{\black}[1]{\textcolor{c9}{#1}
 
-\newcommand\orangeuline[1]{\colorlet{temp}{.}\color{orange}\underline{\color{temp}#1}\color{temp}}
+}
+
+%------------------------------------------------------------------------------
+% Options
+%------------------------------------------------------------------------------
+\RequirePackage{pgfkeys}
+\RequirePackage{pgfopts}
+
+
+\pgfkeys{/modernposter/.cd,
+  hlcolor/.store in=\modernposter@hlcolor,
+  hlcolor=FF8000}
+
+\ProcessPgfOptions{/modernposter}
+
+\definecolor{hlcol}{HTML}{\modernposter@hlcolor}
+
+\newcommand{\highlight}[1]{\textcolor{hlcol}{#1}}
+\newcommand{\hluline}[1]{\colorlet{temp}{.}\color{hlcol}\underline{\color{temp}#1}\color{temp}}
 
 %------------------------------------------------------------------------------
 % Lengths and sizes
@@ -117,7 +136,7 @@
       {};
     \node[text width=\paperwidth, 
           text height=0.15em, 
-          fill=orange, 
+          fill=hlcol, 
           yshift=-15em] (sep) at (current page.north) 
       {};
     \node[anchor=west, 
@@ -187,4 +206,3 @@
   \posterbox[#1\boxheight]{#2}{#3}
   \posterbox[\boxheight-#1\boxheight-\colsep-1.33\boxlinewidth]{#4}{#5}
 }
-
