@@ -1,6 +1,21 @@
 \documentclass{article}
 
-\title{modernposter - A modern \LaTeX poster theme}
+\usepackage{xcolor}
+\usepackage[hidelinks=true]{hyperref}
+\usepackage{listings}
+\lstset{
+  basicstyle=\footnotesize\ttfamily,
+  breaklines=true,
+  language=TeX,
+  numbers=left,
+  numbersep=5pt,
+  numberstyle=\tiny\color{lightgray},
+  stepnumber=2,
+  tabsize=2,
+  backgroundcolor=\color{black!4}
+}
+
+\title{modernposter - A modern \LaTeX~poster theme}
 \author{David Derler}
 \date{\today}
 
@@ -8,6 +23,51 @@
   \maketitle
 
   \begin{abstract}
-    
+\noindent This class extends the a0poster class in that it adds support to easily create posters without the need for taking care of the layout at all. It allows to use {\tt $\backslash$maketitle} to generate a fancy header containing the title information and also provides macros to position various different types of text boxes in a two-column layout. The color scheme and some parts of the Makefile are inspired by the metropolis beamer theme.
   \end{abstract}
+  \section{Installation}
+  The package can be installed by copying the {\tt modernposter.cls} file to the folder containing the manually installed packages.\footnote{For TeXLive distributions this could be {\tt $\sim$/texmf/tex/latex/modernposter/}.} Alternatively, you may choose to clone the github repository\footnote{\url{https://github.com/derlerd/modernposter}} containing the development version of this package and use the install target of the Makefile contained in this repository. This target will automatically install the package at {\tt $\sim$/texmf/tex/latex/modern\-poster/} and the documentation at {\tt $\sim$/texmf/doc/latex/modernposter/}.
+  \section{Usage}
+  This package is intended to save time whenever a poster needs to be created. Thus we have tried to keep the package as easy to use as possible. Below, we describe the available options followed by a toy example which should illustrate the usage of the package. For more details also refer to the {\tt demo.tex} file in the package.
+  \subsection{Options}
+  The following options can be set. All option keys allow to optionally supply an explicit value.  
+  \begin{description}
+  	\item[{\tt logo=[logo]}] This option allows to provide a path to a logo which is then included on the top right of the page. For example, {\tt logo=img.png}.
+  	\item[{\tt hlcolor=[color]}] This option allows to override the highlight color. The color needs to be supplied in HTML format. For example, {\tt hlcolor=F70146}. 
+  \end{description}
+  \subsection{Toy Example}
+  The following listing demonstrates the basic usage of the package.
+  \begin{lstlisting}
+\documentclass{modernposter}
+
+\title{This is a Modernposter Demo}
+\author{Firstname Lastname}
+\email{firstname.lastname@domain.com} 
+
+\begin{document}
+  \maketitle  
+
+  \begin{postercolumn}
+    \posterbox{Introduction}{ 
+      $\dots$
+    }
+  \end{postercolumn} 
+  \begin{postercolumn}
+    \doubleposterbox[0.6]
+      {Problem Statement}{
+        $\dots$
+      }
+      {\highlight{Results}}{ 
+        $\dots$
+      }
+  \end{postercolumn}
+\end{document}
+
+  \end{lstlisting}
+
+  \section{Getting involved}
+  We are pretty sure that there is quite some potential for improvements. Please send feedback to \href{mailto:modernposter@derler.info}{\tt modernposter@derler.info} or consider getting involved - the development repository is hosted on GitHub and can be found at \url{https://github.com/derlerd/modernposter}. 
+
+  \section{License}
+  The code is licensed under the \href{https://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution-ShareAlike 4.0 International license}.
 \end{document}
