@@ -36,6 +36,7 @@ ctan: doc ctan-version
 	mkdir $(PROJECT)
 	cp -t $(PROJECT) $(CTAN_CONTENT)
 	zip -r $(ARCHIVE) $(PROJECT)
+	rm -rf $(PROJECT)
 
 ctan-version:
 	sed -i 's@20[0-9][0-9]/[0-9]*/[0-9]*@$(shell date "+%Y/%m/%d")@' $(SRC)
