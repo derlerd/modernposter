@@ -32,10 +32,13 @@ install: $(DOC_PDF)
 clean:
 	rm -rf $(TEMP_DIR) $(DOC_PDF) $(DEMO_PDF) $(ARCHIVE) $(PROJECT)
 
-ctan: doc
+ctan: doc ctan-version
 	mkdir $(PROJECT)
 	cp -t $(PROJECT) $(CTAN_CONTENT)
 	zip -r $(ARCHIVE) $(PROJECT)
+
+ctan-version:
+	sed -i 's@20[0-9][0-9]/[0-9]*/[0-9]*@$(shell date "+%Y/%m/%d")@' $(SRC)
 	
 $(DOC_PDF): 
 	$(LATEXMK) $(DOC_SRC)
