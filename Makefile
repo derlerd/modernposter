@@ -23,6 +23,8 @@ VERSION      := $(shell cat version)
 BUILD_FILE    = build
 BUILD        := $(shell cat $(BUILD_FILE))
 
+README        = README.md
+
 
 all: archive
 
@@ -46,9 +48,8 @@ archive: doc
 	rm -rf $(PROJECT)
 	
 ctan-version:
-	echo $(VERSION)
-	sed -i 's@20[0-9][0-9]/[0-9]*/[0-9]* v[0-9]*.[0-9]*.[0-9]*@$(shell date "+%Y/%m/%d") v$(VERSION).$(BUILD)@' $(SRC)
-	sed -i 's@[0-9]*.[0-9]*.[0-9]* 20[0-9][0-9]/[0-9]*/[0-9]*@$(VERSION).$(BUILD) $(shell date "+%Y/%m/%d")@' $(DOC_SRC)
+	sed -i -s 's@20[0-9][0-9]/[0-9]*/[0-9]* v[0-9]*.[0-9]*.[0-9]*@$(shell date "+%Y/%m/%d") v$(VERSION).$(BUILD)@' $(SRC) $(README)
+	sed -i -s 's@[0-9]*.[0-9]*.[0-9]* 20[0-9][0-9]/[0-9]*/[0-9]*@$(VERSION).$(BUILD) $(shell date "+%Y/%m/%d")@' $(DOC_SRC) $(DEMO_SRC) $(SRC)
 	echo $$(($(BUILD) + 1)) > $(BUILD_FILE) 
 
 	
