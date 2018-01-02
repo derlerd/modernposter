@@ -16,10 +16,17 @@ LATEXMK       = latexmk $(LATEXMK_FLAGS)
 TEXMF_SRC     = ~/texmf/tex/latex/modernposter/
 TEXMF_DOC     = ~/texmf/doc/latex/modernposter/
 
-CTAN_CONTENT = README.md $(SRC) $(DOC_PDF) $(DEMO_SRC) $(DEMO_PDF)
+CTAN_CONTENT  = README.md $(SRC) $(DOC_SRC) $(DOC_PDF) $(DEMO_SRC) $(DEMO_PDF)
+
+VERSION      := $(shell cat version)
+
+BUILD_FILE    = build
+BUILD        := $(shell cat $(BUILD_FILE))
 
 
-all: ctan
+all: archive
+
+ctan: clean ctan-version archive
 
 doc: $(DOC_PDF) $(DEMO_PDF)
 
@@ -32,14 +39,18 @@ install: $(DOC_PDF)
 clean:
 	rm -rf $(TEMP_DIR) $(DOC_PDF) $(DEMO_PDF) $(ARCHIVE) $(PROJECT)
 
-ctan: doc ctan-version
+archive: doc
 	mkdir $(PROJECT)
 	cp -t $(PROJECT) $(CTAN_CONTENT)
 	zip -r $(ARCHIVE) $(PROJECT)
 	rm -rf $(PROJECT)
-
+	
 ctan-version:
-	sed -i 's@20[0-9][0-9]/[0-9]*/[0-9]*@$(shell date "+%Y/%m/%d")@' $(SRC)
+	echo $(VERSION)
+	sed -i 's@20[0-9][0-9]/[0-9]*/[0-9]* v[0-9]*.[0-9]*.[0-9]*@$(shell date "+%Y/%m/%d") v$(VERSION).$(BUILD)@' $(SRC)
+	sed -i 's@[0-9]*.[0-9]*.[0-9]* 20[0-9][0-9]/[0-9]*/[0-9]*@$(VERSION).$(BUILD) $(shell date "+%Y/%m/%d")@' $(DOC_SRC)
+	echo $$(($(BUILD) + 1)) > $(BUILD_FILE) 
+
 	
 $(DOC_PDF): 
 	$(LATEXMK) $(DOC_SRC)
