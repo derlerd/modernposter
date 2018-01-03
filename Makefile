@@ -39,7 +39,7 @@ install: $(DOC_PDF)
 	cp $(DOC_PDF) $(TEXMF_DOC)
 
 clean:
-	rm -rf $(TEMP_DIR) $(DOC_PDF) $(DEMO_PDF) $(ARCHIVE) $(PROJECT)
+	rm -rf $(TEMP_DIR) $(DOC_PDF) $(DEMO_PDF) $(ARCHIVE)
 
 archive: doc
 	mkdir $(PROJECT)
