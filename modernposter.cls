@@ -71,9 +71,7 @@
 \let\oldparboxrestore\@arrayparboxrestore
 \renewcommand{\@arrayparboxrestore}{
   \oldparboxrestore
-  \makeatletter
   \parskip0.4em
-  \makeatother
   }
 
 \let\faiconold\faicon
@@ -101,14 +99,12 @@
 }
 
 \AtBeginDocument{
-  \makeatletter
-    \def\bfseries@sf{m}
-    \SetSymbolFont{operators}{normal}{\math@encoding}{\math@sfdefault}{l}{n}
-    \SetSymbolFont{operators}{bold}{\math@encoding}{\math@sfdefault}{m}{n}
-    \DeclareSymbolFont{SFMath}{\math@encoding}{\math@sfdefault}{l}{sl}
-    \SetSymbolFont{SFMath}{normal}{\math@encoding}{\math@sfdefault}{l}{sl}
-    \SetSymbolFont{SFMath}{bold}{\math@encoding}{\math@sfdefault}{m}{\mathnormal@bold@shape}
-  \makeatother   
+  \def\bfseries@sf{m}
+  \SetSymbolFont{operators}{normal}{\math@encoding}{\math@sfdefault}{l}{n}
+  \SetSymbolFont{operators}{bold}{\math@encoding}{\math@sfdefault}{m}{n}
+  \DeclareSymbolFont{SFMath}{\math@encoding}{\math@sfdefault}{l}{sl}
+  \SetSymbolFont{SFMath}{normal}{\math@encoding}{\math@sfdefault}{l}{sl}
+  \SetSymbolFont{SFMath}{bold}{\math@encoding}{\math@sfdefault}{m}{\mathnormal@bold@shape}
 }
 
 \AtEndDocument{
