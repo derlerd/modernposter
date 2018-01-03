@@ -5,6 +5,7 @@ DOC_SRC       = doc/modernposter.tex
 DOC_PDF       = $(DOC_SRC:%.tex=%.pdf)
 DEMO_SRC      = demo.tex
 DEMO_PDF      = $(DEMO_SRC:%.tex=%.pdf)
+README        = README.md
 
 ARCHIVE       = modernposter.zip
 
@@ -16,15 +17,12 @@ LATEXMK       = latexmk $(LATEXMK_FLAGS)
 TEXMF_SRC     = ~/texmf/tex/latex/modernposter/
 TEXMF_DOC     = ~/texmf/doc/latex/modernposter/
 
-CTAN_CONTENT  = README.md $(SRC) $(DOC_SRC) $(DOC_PDF) $(DEMO_SRC) $(DEMO_PDF)
+CTAN_CONTENT  = $(README) $(SRC) $(DOC_SRC) $(DOC_PDF) $(DEMO_SRC) $(DEMO_PDF)
 
 VERSION      := $(shell cat version)
 
 BUILD_FILE    = build
 BUILD        := $(shell cat $(BUILD_FILE))
-
-README        = README.md
-
 
 all: archive
 
@@ -44,6 +42,7 @@ clean:
 archive: doc
 	@mkdir $(PROJECT)
 	@cp -t $(PROJECT) $(CTAN_CONTENT)
+	@sed -i 's@and some parts of the Makefile are@is@' $(PROJECT)/$(notdir $(README))
 	@zip --quiet -r $(ARCHIVE) $(PROJECT)
 	@rm -rf $(PROJECT)
 	
