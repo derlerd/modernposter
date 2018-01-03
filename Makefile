@@ -36,6 +36,9 @@ install: $(DOC_PDF)
 	@cp $(SRC) $(TEXMF_SRC)
 	@cp $(DOC_PDF) $(TEXMF_DOC)
 
+uninstall:
+	@rm -rf $(TEXMF_SRC) $(TEXMF_DOC)
+
 clean:
 	@rm -rf $(TEMP_DIR) $(DOC_PDF) $(DEMO_PDF) $(ARCHIVE)
 
