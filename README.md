@@ -8,7 +8,7 @@ Below you can find a preview of the demo:
 
 ## Usage
 
-Below you can find a toy example, demonstrating how to use modernposter
+Below you can find a toy example, demonstrating how to use modernposter.
 
 ```latex
 \documentclass{modernposter}
