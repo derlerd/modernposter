@@ -9,7 +9,7 @@
 % This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 
 % International license (cf. https://creativecommons.org/licenses/by-sa/4.0/)  
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{modernposter}[2018/01/02 v1.01.2 Modern poster template. Inspired by metropolis beamer template.]
+\ProvidesClass{modernposter}[2018/01/02 v1.01.2 A modern LaTeX poster template. Color scheme inspired by metropolis beamer theme.]
 
 \LoadClass[portrait]{a0poster}
 
