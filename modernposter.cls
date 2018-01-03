@@ -31,9 +31,14 @@
 \pgfkeys{/modernposter/.cd,
   hlcolor/.store in=\modernposter@hlcolor,
   logo/.store in=\modernposter@logo,
-  helvet/.code={\def\helvettrue{}},
-  hlcolor=FF8000,
-  logo=none}
+  hlcolor=FF8000}
+
+\ProcessPgfOptions{/modernposter}
+
+\pgfkeys{/modernposter/.cd,
+  logo/.code={\def\@logotrue{}},
+  helvet/.code={\def\@helvettrue{}},
+}
 
 \ProcessPgfOptions{/modernposter}
 
@@ -81,7 +86,7 @@
 \renewcommand{\labelitemi}{$\bullet$~~}
 \renewcommand{\labelitemii}{\faicon{angle-right}~~}
 
-\ifdefined\helvettrue
+\ifdefined\@helvettrue
   \RequirePackage{helvet}
   \renewcommand\familydefault{\sfdefault}
 \else
@@ -93,7 +98,6 @@
 % Begin/End Document commands
 %------------------------------------------------------------------------------
 \RequirePackage{etoolbox}
-\RequirePackage{xifthen,xstring}
 \AfterEndPreamble{
   \setlength{\colheight}{111.6em}
   \setlength{\colwidth}{\dimexpr0.4525\linewidth\relax}
@@ -107,7 +111,7 @@
 }
 
 \AtBeginDocument{
-  \ifdefined\helvettrue\else
+  \ifdefined\@helvettrue\else
     \def\bfseries@sf{m}
     \SetSymbolFont{operators}{normal}{\math@encoding}{\math@sfdefault}{l}{n}
     \SetSymbolFont{operators}{bold}{\math@encoding}{\math@sfdefault}{m}{n}
@@ -145,11 +149,11 @@
           fill=hlcol, 
           yshift=-15em] (sep) at (current page.north) 
       {};
-    \expandafter\ifstrequal\expandafter{\modernposter@logo}{none}{}{
+    \ifdefined\@logotrue
     \node[anchor=west, 
           xshift=1em] (logo) at (header.east) 
       {\includegraphics[width=13em]{\modernposter@logo}};
-    }
+    \fi
     \node[anchor=east, 
           yshift=3.4em, 
           xshift=-2.5em] (title) at (header.east) 
