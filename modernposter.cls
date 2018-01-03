@@ -31,6 +31,7 @@
 \pgfkeys{/modernposter/.cd,
   hlcolor/.store in=\modernposter@hlcolor,
   logo/.store in=\modernposter@logo,
+  helvet/.code={\def\helvettrue{}},
   hlcolor=FF8000,
   logo=none}
 
@@ -80,12 +81,19 @@
 \renewcommand{\labelitemi}{$\bullet$~~}
 \renewcommand{\labelitemii}{\faicon{angle-right}~~}
 
-\RequirePackage[light,sfdefault]{FiraSans}
+\ifdefined\helvettrue
+  \RequirePackage{helvet}
+  \renewcommand\familydefault{\sfdefault}
+\else
+  \RequirePackage[light,sfdefault]{FiraSans}	
+\fi
+
 
 %------------------------------------------------------------------------------
 % Begin/End Document commands
 %------------------------------------------------------------------------------
 \RequirePackage{etoolbox}
+\RequirePackage{xifthen,xstring}
 \AfterEndPreamble{
   \setlength{\colheight}{111.6em}
   \setlength{\colwidth}{\dimexpr0.4525\linewidth\relax}
@@ -99,12 +107,14 @@
 }
 
 \AtBeginDocument{
-  \def\bfseries@sf{m}
-  \SetSymbolFont{operators}{normal}{\math@encoding}{\math@sfdefault}{l}{n}
-  \SetSymbolFont{operators}{bold}{\math@encoding}{\math@sfdefault}{m}{n}
-  \DeclareSymbolFont{SFMath}{\math@encoding}{\math@sfdefault}{l}{sl}
-  \SetSymbolFont{SFMath}{normal}{\math@encoding}{\math@sfdefault}{l}{sl}
-  \SetSymbolFont{SFMath}{bold}{\math@encoding}{\math@sfdefault}{m}{\mathnormal@bold@shape}
+  \ifdefined\helvettrue\else
+    \def\bfseries@sf{m}
+    \SetSymbolFont{operators}{normal}{\math@encoding}{\math@sfdefault}{l}{n}
+    \SetSymbolFont{operators}{bold}{\math@encoding}{\math@sfdefault}{m}{n}
+    \DeclareSymbolFont{SFMath}{\math@encoding}{\math@sfdefault}{l}{sl}
+    \SetSymbolFont{SFMath}{normal}{\math@encoding}{\math@sfdefault}{l}{sl}
+    \SetSymbolFont{SFMath}{bold}{\math@encoding}{\math@sfdefault}{m}{\mathnormal@bold@shape}
+  \fi
 }
 
 \AtEndDocument{
@@ -115,7 +125,6 @@
 % Title commands
 %------------------------------------------------------------------------------
 \RequirePackage[hidelinks]{hyperref}
-\RequirePackage{xifthen,xstring}
 
 \def\@email{}
 \newcommand{\email}[1]{\def\@email{#1}}

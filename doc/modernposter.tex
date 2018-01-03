@@ -42,10 +42,11 @@
   \section{Usage}
   This package is intended to save time whenever a poster needs to be created. Thus we have tried to keep the package as easy to use as possible. Below, we describe the available options as well as the available macros. In addition, we provide a toy example which should illustrate the usage of the package. For more details also refer to the {\tt demo.tex} file in the package.
   \subsection{Options}
-  The following options can be set. All option keys allow to optionally supply an explicit value.  
+  The following options can be set. Some option keys allow to optionally supply an explicit value.  
   \begin{description}
   	\item[\PVerb{logo=[logo]}] This option allows to provide a path to a logo which is then included on the top right of the page. For example, {\tt logo=img.png}.
   	\item[\PVerb{hlcolor=[color]}] This option allows to override the highlight color. The color needs to be supplied in HTML format. For example, {\tt hlcolor=F70146}. 
+    \item[\PVerb{helvet}] This option, if supplied, switches the font from Fira Sans to Helvetica.
   \end{description}
   \subsection{Environments}
   The following environments are provided by the package.
@@ -98,6 +99,6 @@
   \begin{description}
   	\item[1.0] Initial release.
   	\item[1.01.2] Improved versioning; added explicit version numbers to every file.
-  	\item[1.01.3] Removed some unused stuff; improved documentation
+  	\item[1.01.3] Implemented option to switch between Fira Sans and Helvetica; Removed some unused stuff; improved documentation
   \end{description}
 \end{document}
