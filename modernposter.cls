@@ -18,31 +18,8 @@
 %------------------------------------------------------------------------------
 \RequirePackage{xcolor}
 
-\definecolor{c1}{HTML}{CB4B16}
-\definecolor{c2}{HTML}{586E75}
-\definecolor{c3}{HTML}{6C71C4}
-\definecolor{c4}{HTML}{D33682}
-\definecolor{c5}{HTML}{268BD2}
-\definecolor{c6}{HTML}{B58900}
-\definecolor{c7}{HTML}{859900}
-\definecolor{c8}{HTML}{DC322F}
-\definecolor{c9}{HTML}{002B36}
-\definecolor{c10}{HTML}{FF8000}
-
 \definecolor{mDarkTeal}{HTML}{23373b}
 \definecolor{mDarkBrown}{HTML}{604c38}
-
-\newcommand{\orange}[1]{\textcolor{c10}{#1}}
-\newcommand{\gray}[1]{\textcolor{c2}{#1}}
-\newcommand{\purple}[1]{\textcolor{c3}{#1}}
-\newcommand{\pink}[1]{\textcolor{c4}{#1}}
-\newcommand{\blue}[1]{\textcolor{c5}{#1}}
-\newcommand{\yellow}[1]{\textcolor{c6}{#1}}
-\newcommand{\green}[1]{\textcolor{c7}{#1}}
-\newcommand{\red}[1]{\textcolor{c8}{#1}}
-\newcommand{\black}[1]{\textcolor{c9}{#1}
-
-}
 
 %------------------------------------------------------------------------------
 % Options
