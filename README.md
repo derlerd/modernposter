@@ -2,7 +2,7 @@
 
 This class extends the a0poster class in that it adds support to easily create posters without the need for taking care of the layout at all. It allows to use \maketitle to generate a fancy header containing the title information and also provides macros to position various different types of text boxes in a two-column layout. The color scheme and some parts of the Makefile are inspired by the [metropolis beamer theme](https://github.com/matze/mtheme). 
 
-The modernposter package is included in [TeXLive](https://ctan.org/pkg/texlive) and in [MiKTeX](https://ctan.org/pkg/miktex).
+The modernposter package can be found on [CTAN](https://ctan.org/pkg/modernposter) and is included in [TeXLive](https://ctan.org/pkg/texlive) and in [MiKTeX](https://ctan.org/pkg/miktex).
 
 Below you can find a preview of the demo:
 
