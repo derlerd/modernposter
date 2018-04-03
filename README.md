@@ -40,7 +40,7 @@ Below you can find a toy example, demonstrating how to use modernposter.
 ```
 
 ## Authors
-The code was written by David Derler. He can be contacted via [modernposter@derler.info](mailto:modernposter@derler.info).
+The code is maintained by David Derler. He can be contacted via [modernposter@derler.info](mailto:modernposter@derler.info). A list of contributors can be found [here](https://github.com/derlerd/modernposter/graphs/contributors).
 
 ## License
 The code is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/).

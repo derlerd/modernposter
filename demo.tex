@@ -4,7 +4,8 @@
 %
 % Version 1.02.1 2018/01/04
 %
-% Copyright 2018 David Derler
+% Copyright 2018 David Derler and other contributors. A list of contributors 
+% can be found at https://github.com/derlerd/modernposter/graphs/contributors
 %
 % This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 
 % International license (cf. https://creativecommons.org/licenses/by-sa/4.0/)  
