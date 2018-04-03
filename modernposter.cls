@@ -2,7 +2,7 @@
 %
 % This file is part of the modernposter LaTeX template
 %
-% Version 1.02.1 2018/01/04
+% Version 1.03.1 2018/04/03
 %
 % Copyright 2018 David Derler and other contributors. A list of contributors 
 % can be found at https://github.com/derlerd/modernposter/graphs/contributors
@@ -10,7 +10,7 @@
 % This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 
 % International license (cf. https://creativecommons.org/licenses/by-sa/4.0/)  
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{modernposter}[2018/01/04 v1.02.1 A modern LaTeX poster template. Color scheme inspired by metropolis beamer theme.]
+\ProvidesClass{modernposter}[2018/04/03 v1.03.1 A modern LaTeX poster template. Color scheme inspired by metropolis beamer theme.]
 
 \LoadClass[portrait]{a0poster}
 

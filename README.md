@@ -1,4 +1,4 @@
-## modernposter - A modern LaTeX poster theme (2018/01/04 v1.02.1)
+## modernposter - A modern LaTeX poster theme (2018/04/03 v1.03.1)
 
 This class extends the a0poster class in that it adds support to easily create posters without the need for taking care of the layout at all. It allows to use \maketitle to generate a fancy header containing the title information and also provides macros to position various different types of text boxes in a two-column layout. The color scheme and some parts of the Makefile are inspired by the [metropolis beamer theme](https://github.com/matze/mtheme). 
 
