@@ -150,9 +150,9 @@
           yshift=-15em] (sep) at (current page.north) 
       {};
     \ifdefined\@logotrue
-    \node[anchor=west, 
-          xshift=1em] (logo) at (header.east) 
-      {\includegraphics[width=13em]{\modernposter@logo}};
+    \node[anchor=center, 
+          xshift=7.5em] (logo) at (header.east) 
+      {\includegraphics[width=13em, height=13em, keepaspectratio]{\modernposter@logo}};
     \fi
     \node[anchor=east, 
           yshift=3.4em, 
