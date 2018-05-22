@@ -40,18 +40,18 @@ uninstall:
 	@rm -rf $(TEXMF_SRC) $(TEXMF_DOC)
 
 clean:
-	@rm -rf $(TEMP_DIR) $(DOC_PDF) $(DEMO_PDF) $(ARCHIVE)
+	@rm -rf $(TEMP_DIR) $(DOC_PDF) $(DEMO_PDF) $(ARCHIVE) $(PROJECT)
 
 archive: doc
 	@mkdir $(PROJECT)
-	@cp -t $(PROJECT) $(CTAN_CONTENT)
-	@sed -i 's@and some parts of the Makefile are@is@' $(PROJECT)/$(notdir $(README))
+	@echo $(CTAN_CONTENT) | xargs -n1 -I % cp % $(PROJECT)
+	@sed -i '' -e 's@and some parts of the Makefile are@is@' $(PROJECT)/$(notdir $(README))
 	@zip --quiet -r $(ARCHIVE) $(PROJECT)
 	@rm -rf $(PROJECT)
 	
 ctan-version:
-	@sed -i -s 's@20[0-9][0-9]/[0-9]*/[0-9]* v[0-9]*.[0-9]*.[0-9]*@$(shell date "+%Y/%m/%d") v$(VERSION).$(BUILD)@' $(SRC) $(README)
-	@sed -i -s 's@[0-9]*.[0-9]*.[0-9]* 20[0-9][0-9]/[0-9]*/[0-9]*@$(VERSION).$(BUILD) $(shell date "+%Y/%m/%d")@' $(DOC_SRC) $(DEMO_SRC) $(SRC)
+	@echo $(SRC) $(README) | xargs -n1 -I % sed -i '' -e 's@20[0-9][0-9]/[0-9]*/[0-9]* v[0-9]*.[0-9]*.[0-9]*@$(shell date "+%Y/%m/%d") v$(VERSION).$(BUILD)@' %
+	@echo $(DOC_SRC) $(DEMO_SRC) $(SRC) | xargs -n1 -I % sed -i '' -e 's@[0-9]*.[0-9]*.[0-9]* 20[0-9][0-9]/[0-9]*/[0-9]*@$(VERSION).$(BUILD) $(shell date "+%Y/%m/%d")@' % 
 	@echo $$(($(BUILD) + 1)) > $(BUILD_FILE) 
 
 	
